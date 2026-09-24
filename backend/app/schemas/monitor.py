@@ -7,7 +7,11 @@ class MonitorCreate(BaseModel):
     interval_seconds: int = Field(default=30, ge=10)
     timeout_seconds: int = Field(default=10, ge=1)
 
-
+class MonitorUpdate(BaseModel):
+    name: str | None = None
+    url: HttpUrl | None = None
+    interval_seconds: int | None = Field(default=None, ge=10)
+    timeout_seconds: int | None = Field(default=None, ge=1)
 class MonitorResponse(BaseModel):
     id: int
     name: str
